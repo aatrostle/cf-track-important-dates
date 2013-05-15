@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @important_date.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @important_date.description %>
+</p>
+
+<p>
+  <b>Day:</b>
+  <%= @important_date.day %>
+</p>
+
+
+<%= link_to 'Edit', edit_important_date_path(@important_date) %> |
+<%= link_to 'Back', important_dates_path %>

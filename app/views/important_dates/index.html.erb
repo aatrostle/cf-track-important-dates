@@ -1,0 +1,27 @@
+<h1>Listing important_dates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Day</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @important_dates.each do |important_date| %>
+  <tr>
+    <td><%= important_date.name %></td>
+    <td><%= important_date.description %></td>
+    <td><%= important_date.day %></td>
+    <td><%= link_to 'Show', important_date %></td>
+    <td><%= link_to 'Edit', edit_important_date_path(important_date) %></td>
+    <td><%= link_to 'Destroy', important_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Important date', new_important_date_path %>
