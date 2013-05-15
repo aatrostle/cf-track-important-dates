@@ -1,51 +1,51 @@
-<h1>Listing Important Dates</h1>
-
 <h2>Upcoming Important Dates</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Day</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @important_dates.each do |important_date| %>
-  <tr>
-    <td><%= important_date.name %></td>
-    <td><%= important_date.description %></td>
-    <td><%= important_date.day %></td>
-    <td><%= link_to 'Show', important_date %></td>
-    <td><%= link_to 'Edit', edit_important_date_path(important_date) %></td>
-    <td><%= link_to 'Destroy', important_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Day</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @important_dates.each do |important_date| %>
+    <tr>
+      <td><%= important_date.name %></td>
+      <td><%= important_date.description %></td>
+      <td><%= important_date.day.to_formatted_s(:long) %></td>
+      <td><%= link_to 'Show', important_date %></td>
+      <td><%= link_to 'Edit', edit_important_date_path(important_date) %></td>
+      <td><%= link_to 'Destroy', important_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
 
-<br />
+<%= link_to 'New Important date', new_important_date_path, class: 'btn' %>
 
-<%= link_to 'New Important date', new_important_date_path %>
+<br /><br />
 
-<h2>Past Important Dates</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Day</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @old_important_dates.each do |old_important_date| %>
-  <tr>
-    <td><%= old_important_date.name %></td>
-    <td><%= old_important_date.description %></td>
-    <td><%= old_important_date.day %></td>
-    <td></td>
-    <td></td>
-    <td><%= link_to 'Destroy', old_important_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<h4>Past Important Dates</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Day</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @old_important_dates.each do |old_important_date| %>
+    <tr>
+      <td><%= old_important_date.name %></td>
+      <td><%= old_important_date.description %></td>
+      <td><%= old_important_date.day.to_formatted_s(:long) %></td>
+      <td><%= link_to 'Destroy', old_important_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
