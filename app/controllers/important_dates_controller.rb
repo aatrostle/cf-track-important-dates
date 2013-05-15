@@ -2,9 +2,8 @@ class ImportantDatesController < ApplicationController
   # GET /important_dates
   # GET /important_dates.json
   def index
-    #@important_dates = ImportantDate.where('day >= ?', Date.today)
-
-    @important_dates = ImportantDate.all
+    @important_dates = ImportantDate.where('day >= ?', Date.today)
+    @old_important_dates = ImportantDate.where('day <= ?', Date.today)
 
     respond_to do |format|
       format.html # index.html.erb

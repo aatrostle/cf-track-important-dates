@@ -1,5 +1,6 @@
-<h1>Listing important_dates</h1>
+<h1>Listing Important Dates</h1>
 
+<h2>Upcoming Important Dates</h2>
 <table>
   <tr>
     <th>Name</th>
@@ -25,3 +26,26 @@
 <br />
 
 <%= link_to 'New Important date', new_important_date_path %>
+
+<h2>Past Important Dates</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Day</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @old_important_dates.each do |old_important_date| %>
+  <tr>
+    <td><%= old_important_date.name %></td>
+    <td><%= old_important_date.description %></td>
+    <td><%= old_important_date.day %></td>
+    <td></td>
+    <td></td>
+    <td><%= link_to 'Destroy', old_important_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
